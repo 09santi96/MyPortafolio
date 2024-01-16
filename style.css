@@ -1,0 +1,693 @@
+/* .themeOne{
+	--fallout-green: #5dfd00;
+	--fallout-bg-grey-green: #137e3ecc;
+	--fallout-bg-dark-grey: #14271a;
+	--fallout-bg-light-grey: #02170a;
+	--fallout-bg-black: #0c0101;
+
+	--fallout-text-black: #000000;
+	--fallout-text-green: #5dfd00;
+	--shadows-color:#88a77c;
+	--shadows-icon-color:#d1a179;
+} */
+/* :root{
+	--fallout-green: #ffd900;
+	--fallout-bg-grey-green: #0F6292;
+	--fallout-bg-dark-grey: #0075b9;
+	--fallout-bg-light-grey: #16FF00;
+	--fallout-bg-black: #000000;
+
+	--fallout-text-black: #0F6292;
+	--fallout-text-green: #ffd900;
+	--shadows-color:#867200;
+	--shadows-icon-color:#00eeff;
+	
+} */
+
+* {
+	box-sizing: border-box;
+    font-family:vt323;
+	font-weight: 100;
+}
+
+*::selection {
+  background-color: var(--fallout-green);
+  color: var(--fallout-text-black);
+}
+
+body {
+	height: 100%;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(var(--fallout-bg-dark-grey) 50%, transparent 0),
+		linear-gradient(var(--fallout-green) 50%, transparent 0),
+		repeating-linear-gradient(
+			to bottom,
+			var(--fallout-green),
+			var(--fallout-green) 3px,
+			var(--fallout-bg-dark-grey) 3px,
+			var(--fallout-bg-dark-grey) 4px
+		);
+	background-position: 0 0, 0 4px, 0 0;
+	background-size: 4px 100%, 4px 100%, 100% 4px;
+	background-repeat: repeat-y, repeat-y, repeat;
+}
+#bezel{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:10;
+}
+
+.terminal {
+	display: flex;
+	background: linear-gradient(
+		to bottom,
+		var(--fallout-bg-light-grey) 0%,
+		var(--fallout-bg-grey-green) 50%,
+		var(--fallout-bg-light-grey) 100%
+	);
+	background-size: 100% 200%;
+	animation: gradient 10s linear infinite;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow-y: hidden;
+}
+
+.terminal::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		to bottom,
+		var(--fallout-bg-light-grey) 0%,
+		var(--fallout-bg-grey-green) 50%,
+		var(--fallout-bg-light-grey) 100%
+	);
+	background-size: 100% 200%;
+	animation: gradient 10s linear infinite;
+}
+.init{
+	animation: gradient .1s linear infinite;
+}
+
+.main-content {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	width:100%;
+	color: var(--fallout-text-green);
+    text-shadow:1px 1px 2px var(--shadows-color), 
+    0 0 .4em var(--shadows-color),
+    0 0 .2em var(--shadows-color);
+	height: 100%;
+	z-index: 2;
+	padding:0;
+	margin:0;
+}
+ 
+.content-section {
+    width: 92vw;
+    height: 87vh;
+	max-height:87vh;
+	border:0px solid rgb(205, 86, 50);
+	margin:20px 0px;
+	padding: 0;
+	margin:2.2em auto;
+	overflow-y:scroll;
+}
+.content-section .section-typing {
+	display:flex;
+	flex-direction: column;
+	border:0px solid yellowgreen;
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.content-section::-webkit-scrollbar{
+	display:none;
+}
+.content-section .classWelcome{
+	margin: auto;
+	padding:10px 0;
+	text-align: center; 
+	animation: blink 0.1s ease-in-out infinite;
+}
+@keyframes blink {
+	0% {
+	  opacity: .7;
+	}
+	50% {
+	  opacity: 1;
+	}
+	100% {
+	  opacity: .7;
+	}
+  }
+/*----------------------------------------------------------------------------*/
+
+.user-input{
+	background:none;
+	outline:none;
+	box-sizing: border-box;
+	min-width: 100%;
+	z-index:2;
+	padding:0;
+	margin:0;
+	resize: none;
+	border:none;
+	font-size: 1.8vw;
+	caret-color: var(--fallout-text-green);
+	color: var(--fallout-text-green);
+	text-shadow:1px 1px 1px var(--shadows-color), 
+	0 0 5px var(--shadows-color),
+	0 0 1px var(--shadows-color);
+}
+
+.content-section .logo{
+	font-size: 1vw;
+	margin:0;
+	padding:0;
+	color: var(--fallout-green);
+	text-shadow:1px 1px 1px var(--shadows-color), 
+	0 0 5px var(--shadows-color),
+	0 0 1px var(--shadows-color);
+}
+.content-section p span {
+	display: inline-block;
+	animation: typing 1s steps(20, end) forwards;
+	animation-delay: 0.5s;
+}
+
+.active {
+    display: block;
+}
+.inactive {
+    display: none;
+}
+
+.answer-typing,
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  width: auto;
+  font-size: 1.8vw;
+  margin:0;
+  padding:0;
+  text-shadow:1px 1px 1px var(--shadows-color), 
+  0 0 5px var(--shadows-color),
+  0 0 1px var(--shadows-color);
+}
+
+.cursor{
+	display: inline-block;
+	width: 1px;
+	height: .7em;
+	background-color: var(--fallout-text-green);
+	margin-left: 2px;
+	animation: cursor-blink 1s infinite;
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+@keyframes cursor-blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes gradient {	
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 0 -200%;
+	}
+}
+/*----------------------------------------------------------------------------*/
+.memory{
+	position: absolute;
+	bottom:40px;
+	right:50px;
+	z-index: 2;
+	padding:0 5px;
+	background: var(--fallout-text-green);
+	box-shadow: 1px 1px 2px var(--shadows-color), 
+    0 0 .4em var(--shadows-color), 
+    0 0 .2em var(--shadows-color);
+}
+.memory p{
+	width:max-content;
+	background:none;
+	border:none;
+	outline:none;
+	font-size: 1.5vw;
+	padding:0;
+	margin:0;
+	color: var(--fallout-text-black);
+}
+
+
+/*----------------------------------------------------------------------------*/
+.config{
+	position: absolute;
+	top:40px;
+	right:50px;
+	font-size: 1.8vw;
+	margin:0;
+	padding:0;
+	z-index: 2;
+	text-shadow: 1px 1px 2px var(--shadows-color), 
+    0 0 .4em var(--shadows-color), 
+    0 0 .2em var(--shadows-color);
+}
+
+.config > i:hover{
+	cursor:pointer;
+	text-shadow: 1px 1px 2px var(--shadows-icon-color), 
+    0 0 .4em var(--shadows-icon-color), 
+    0 0 .2em var(--shadows-icon-color);
+}
+.spin-gear{
+	animation:spin 2s linear infinite;
+}
+.open-config{
+	position: absolute;
+	top:10px;
+	right:30px;
+	visibility:hidden;
+	opacity:0;
+	transition: opacity 1s ease;
+}
+.open-config-active{
+	position: absolute;
+	top:10px;
+	right:30px;
+	visibility:visible;
+	opacity:1;
+	width: auto;
+	height:auto;
+	padding:0;
+	margin:0;
+}
+.open-config .config-container{
+	display: flex;
+}
+.open-config .config-container i{
+	margin: 0 5px;
+}
+.open-config .config-container i:hover{
+	cursor:pointer;
+	margin: 0 5px;
+	cursor:pointer;
+	text-shadow: 1px 1px 2px var(--shadows-icon-color), 
+    0 0 .4em var(--shadows-icon-color), 
+    0 0 .2em var(--shadows-icon-color);
+}
+@keyframes spin {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
+
+ /*------------------DIV NOTIFICATIONS--------------------------------*/
+.notification-container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 40vw;
+	height: 25vh;
+	background-color: var(--fallout-text-green);
+	z-index:3;
+	box-shadow: 10px 10px 0px -1px var(--fallout-bg-dark-grey);
+	-webkit-box-shadow: 10px 10px 0px -1px var(--fallout-bg-dark-grey);
+	-moz-box-shadow: 10px 10px 0px -1px var(--fallout-bg-dark-grey);
+	border: none;
+	animation: blink 0.1s ease-in-out infinite;
+}
+.notification-container:before{
+	content: '';
+	display: block;
+	width: 94%;
+	height: 82%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color:transparent;
+	border:2px double var(--fallout-bg-dark-grey);
+}
+.notification-container:after{
+	content: 'Notification';
+	font-size: 1.8vw;
+	color:var(--fallout-text-black);
+	display: block;
+	width: 20%;
+	height: 20%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color:var(--fallout-text-green);
+	padding: 0 10px;
+}
+.notification-container .alert-text{
+	color:var(--fallout-text-black);
+	font-size: 1.8vw;
+	position: absolute;
+	overflow: visible;
+	/* top: 25px;
+	left: 100px; */
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+/*------------------------------------------------------------------*/
+/*---------------------CANVAS GAMES------------------------------*/
+#canvasContainerID {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+  }
+canvas {
+	border: 5px solid var(--fallout-text-green);
+	width: 93%;
+	height: 88%;
+}
+/*------------------------------------------------------------------*/
+@media screen and (min-height: 600px) {
+	.content-section {
+		margin:50px auto;
+	}
+	.memory{
+		bottom:70px;
+		right:50px;
+	}
+}
+@media screen and (min-height: 1100px) {
+	.content-section {
+		margin:80px auto;
+	}
+	.notification-container{
+		width: 40vw;
+		height: 25vh;
+	}
+}
+@media screen and (max-width: 900px ){
+	.user-input,
+	.answer-typing,
+	.typing-text {
+		font-size: 3.2vw;
+	}
+	.content-section .logo{
+		font-size: 1.2vw;
+	}
+	.memory p{
+		font-size: 1.7vw;
+	}
+	.config{
+		top:75px;
+	}
+	.notification-container:after{
+		font-size: 3vw;
+		width:32%;
+		padding: 0 15px;
+	}
+	.notification-container .alert-text{
+		font-size: 3vw;
+	}
+}
+@media screen and (max-width: 700px) {
+	.user-input,
+	.answer-typing,
+	.typing-text {
+		font-size: 3.5vw;
+	}
+	.content-section .logo{
+		font-size: 1.3vw;
+	}
+	.memory p{
+		font-size: 2.5vw;
+	}
+
+	.config{
+		top:75px;
+		right:30px;
+		font-size: 3vw;
+	}
+	.open-config-active{
+		position: absolute;
+		top:30px;
+		right:0;
+	}
+	.open-config .config-container{
+		flex-direction: column;
+	}
+	.open-config .config-container i{
+		margin: 2px 0;
+	}
+	.notification-container:after{
+		font-size: 4vw;
+		width:46%;
+		padding: 0 15px;
+	}
+	.notification-container .alert-text{
+		font-size: 4vw;
+	}
+
+}
+@media screen and (max-width: 445px) {
+	.user-input,
+	.answer-typing,
+	.typing-text {
+		font-size: 4.5vw;
+	}
+	.content-section .logo{
+		font-size: 1.5vw;
+	}
+	.memory p{
+		font-size: 3.5vw;
+	}
+	.notification-container:after{
+		font-size: 5vw;
+		width:55%;
+		padding: 0 15px;
+	}
+	.notification-container .alert-text{
+		font-size: 5vw;
+	}
+}
+@media screen and (max-width: 300px) {
+	.memory p{
+		font-size: 4.5vw;
+	}
+	.notification-container:after{
+		font-size: 5vw;
+		width:55%;
+		padding: 0 15px;
+	}
+	.notification-container .alert-text{
+		font-size: 5vw;
+	}
+}
+/*-------------------------crt effect display------------------------------*/
+.crt {
+	animation: textShadow 0.1s infinite;
+  }
+.crt::after {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(18, 16, 16, 0.1);
+	opacity: 0;
+	z-index: 2;
+	pointer-events: none;
+	animation: flicker 0.1s infinite;
+  }
+  .crt::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	z-index: 2;
+	background-size: 100% 2px, 3px 100%;
+	pointer-events: none;
+  }
+
+
+@keyframes flicker {
+	0% {
+	  opacity: 0.27861;
+	}
+	5% {
+	  opacity: 0.34769;
+	}
+	10% {
+	  opacity: 0.23604;
+	}
+	15% {
+	  opacity: 0.90626;
+	}
+	20% {
+	  opacity: 0.18128;
+	}
+	25% {
+	  opacity: 0.83891;
+	}
+	30% {
+	  opacity: 0.65583;
+	}
+	35% {
+	  opacity: 0.67807;
+	}
+	40% {
+	  opacity: 0.26559;
+	}
+	45% {
+	  opacity: 0.84693;
+	}
+	50% {
+	  opacity: 0.96019;
+	}
+	55% {
+	  opacity: 0.08594;
+	}
+	60% {
+	  opacity: 0.20313;
+	}
+	65% {
+	  opacity: 0.71988;
+	}
+	70% {
+	  opacity: 0.53455;
+	}
+	75% {
+	  opacity: 0.37288;
+	}
+	80% {
+	  opacity: 0.71428;
+	}
+	85% {
+	  opacity: 0.70419;
+	}
+	90% {
+	  opacity: 0.7003;
+	}
+	95% {
+	  opacity: 0.36108;
+	}
+	100% {
+	  opacity: 0.24387;
+	}
+  }
+
+  @keyframes textShadow {
+	0% {
+	  text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	5% {
+	  text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	10% {
+	  text-shadow: 0.02956275843481219px 0 1px rgba(0,30,255,0.5), -0.02956275843481219px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	15% {
+	  text-shadow: 0.40218538552878136px 0 1px rgba(0,30,255,0.5), -0.40218538552878136px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	20% {
+	  text-shadow: 3.4794037899852017px 0 1px rgba(0,30,255,0.5), -3.4794037899852017px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	25% {
+	  text-shadow: 1.6125630401149584px 0 1px rgba(0,30,255,0.5), -1.6125630401149584px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	30% {
+	  text-shadow: 0.7015590085143956px 0 1px rgba(0,30,255,0.5), -0.7015590085143956px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	35% {
+	  text-shadow: 3.896914047650351px 0 1px rgba(0,30,255,0.5), -3.896914047650351px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	40% {
+	  text-shadow: 3.870905614848819px 0 1px rgba(0,30,255,0.5), -3.870905614848819px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	45% {
+	  text-shadow: 2.231056963361899px 0 1px rgba(0,30,255,0.5), -2.231056963361899px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	50% {
+	  text-shadow: 0.08084290417898504px 0 1px rgba(0,30,255,0.5), -0.08084290417898504px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	55% {
+	  text-shadow: 2.3758461067427543px 0 1px rgba(0,30,255,0.5), -2.3758461067427543px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	60% {
+	  text-shadow: 2.202193051050636px 0 1px rgba(0,30,255,0.5), -2.202193051050636px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	65% {
+	  text-shadow: 2.8638780614874975px 0 1px rgba(0,30,255,0.5), -2.8638780614874975px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	70% {
+	  text-shadow: 0.48874025155497314px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	75% {
+	  text-shadow: 1.8948491305757957px 0 1px rgba(0,30,255,0.5), -1.8948491305757957px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	80% {
+	  text-shadow: 0.0833037308038857px 0 1px rgba(0,30,255,0.5), -0.0833037308038857px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	85% {
+	  text-shadow: 0.09769827255241735px 0 1px rgba(0,30,255,0.5), -0.09769827255241735px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	90% {
+	  text-shadow: 3.443339761481782px 0 1px rgba(0,30,255,0.5), -3.443339761481782px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	95% {
+	  text-shadow: 2.1841838852799786px 0 1px rgba(0,30,255,0.5), -2.1841838852799786px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+	100% {
+	  text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+	}
+  }
+
+  /*----------------------------*/

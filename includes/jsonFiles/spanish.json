@@ -1,0 +1,11 @@
+{
+    "textWelcome": "¡Bienvenido a mi portafolios! Escriba '-ayuda' para mostrar los comandos disponibles",
+    "textbuild": "Lo siento, el sitio está en construcción, ¡vuelve más tarde!",
+    "errorMsg": "¡Comando incorrecto!",
+    "swichtLangAlert": "You have changed the language to english",
+    "memoryTextOne": "Uso de memoria ",
+    "memoryTextTwo": " de ",
+    "aboutMe": "\u000aSoy un desarrollador Full Stack con experiencia en Front-End (JavaScript, HTML, CSS, AngularJs) y Back-End (PHP, Laravel, Sql, Apache). \u000a Tengo una amplia comprensión de la lógica de programación y facilidad para aprender nuevas habilidades de programación. \u000a He participado activamente en múltiples proyectos de desarrollo web, donde he desempeñado roles tanto front-end como back-end. También tengo experiencia en el diseño y desarrollo de bases de datos y en la implementación de sistemas de seguridad en aplicaciones web. \u000a\u000aAdemás, me considero un Persona proactiva y colaboradora, siempre dispuesta a ayudar y a encontrar soluciones creativas a los problemas que se presentan. \u000a Actualmente estoy buscando oportunidades para aplicar mis habilidades en un entorno dinámico y desafiante, donde pueda seguir aprendiendo y creciendo profesionalmente como un desarrollador Full Stack",
+    "showHelp": "\u000a Comandos \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Descripcion \u000a ------------------------------- \u000a -ayuda \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Muestra los comandos disponibles \u000a -limpiar \u00a0\u00a0\u00a0\u00a0\u00a0  Borra la pantalla \u000a -sobreMi \u00a0\u00a0\u00a0\u00a0\u00a0  Un poco sobre mi como desarrolador \u000a \u00a0\u00a0\u00a0 Pronto mas funciones :)"
+
+}

@@ -1,0 +1,10 @@
+{
+    "textWelcome": "Welcome to my portfolio! type '-help' to show available commands",
+    "textbuild": "Sorry the site is under construction, please come back later!",
+    "errorMsg": "Wrong command!",
+    "swichtLangAlert": "Has cambiado el idioma a español",
+    "memoryTextOne": "Memory usage ",
+    "memoryTextTwo": " of ",
+    "aboutMe": "\u000aI'm a Full Stack developer with experience in Front-End (JavaScript, HTML, CSS, AngularJs) and Back-End (PHP, Laravel, Sql, Apache). \u000a I've a broad understanding of programming logic and a facility for learn new programming skills.\u000a I worked on several web development projects, client and server side. I also have experience in database design and development, and in the implementation of security systems in web applications. \u000a\u000a In addition, I consider myself a proactive and collaborative person, always willing to help to my colleagues and to find creative solutions to the problems that arise.\u000a I am currently looking for opportunities to apply my skills in a dynamic and challenging environment, where I can continue learning and growing professionally as a Full Stack developer.",
+    "showHelp": "\u000a Commands \u00a0\u00a0\u00a0\u00a0 Description \u000a ------------------------------- \u000a -help \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Show available commands \u000a -clear \u00a0\u00a0\u00a0\u00a0\u00a0 Clear the screen \u000a -aboutMe \u00a0\u00a0\u00a0 A bit about me as a developer \u000a \u00a0\u00a0\u00a0 Soon more functions :)"
+}
